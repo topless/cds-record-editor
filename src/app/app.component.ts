@@ -7,7 +7,6 @@ import { JsonEditorConfig } from 'ng2-json-editor';
 import { environment } from '../environments/environment';
 
 @Component({
-  // tslint:disable-next-line
   selector: 'app-root',
   encapsulation: ViewEncapsulation.None,
   templateUrl: 'app.component.html'

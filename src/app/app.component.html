@@ -10,6 +10,7 @@
     </span>
   </div>
 </ng-template>
+
 <json-editor *ngIf="record && schema" [config]="config" [(record)]="record" [(jsonPatches)]="patches" [problemMap]="problemMap"
   [schema]="schema" [templates]="{referenceTemplate: referenceTemplate}">
 </json-editor>
