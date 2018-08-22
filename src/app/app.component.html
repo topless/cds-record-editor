@@ -1,5 +1,7 @@
-<ng-template let-item="item" #referenceTemplate>
-  <div class="reference-template-container" [ngSwitch]="item.hasIn(['record', '$ref'])">
+<ng-template let-item="item"
+  #referenceTemplate>
+  <div class="reference-template-container"
+    [ngSwitch]="item.hasIn(['record', '$ref'])">
     <span *ngSwitchCase="true">
       <i class="fa fa-check-circle success" aria-hidden="true"></i>
       <a href="{{item.getIn(['record', '$ref'])}}" target="_blank">{{item.getIn(['reference', 'misc', 0])}}</a>
@@ -11,6 +13,11 @@
   </div>
 </ng-template>
 
-<json-editor *ngIf="record && schema" [config]="config" [(record)]="record" [(jsonPatches)]="patches" [problemMap]="problemMap"
-  [schema]="schema" [templates]="{referenceTemplate: referenceTemplate}">
+<json-editor *ngIf="recordService.record && recordService.schema"
+  [config]="recordService.config"
+  [(record)]="recordService.record"
+  [(jsonPatches)]="recordService.patches"
+  [problemMap]="recordService.problemMap"
+  [schema]="recordService.schema"
+  [templates]="{referenceTemplate: referenceTemplate}">
 </json-editor>

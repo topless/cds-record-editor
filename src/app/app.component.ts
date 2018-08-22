@@ -1,12 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Http } from '@angular/http';
-
-import 'rxjs/add/observable/zip';
-
-import { JsonEditorConfig } from 'ng2-json-editor';
-import { environment } from '../environments/environment';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { RecordService } from './record.service';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -14,34 +8,10 @@ import { RecordService } from './record.service';
   templateUrl: 'app.component.html',
   providers: [RecordService]
 })
-export class AppComponent {
-  record: object;
-  schema: object;
-  patches: Array<any>;
-  problemMap: object;
-  readonly config: JsonEditorConfig = environment.editorConfig;
-
-  constructor(private recordService: RecordService, private http: Http) {
+export class AppComponent implements OnInit {
+  constructor(public recordService: RecordService) {}
+  public ngOnInit() {
     const urlPrefix = `./assets/${environment.mockDataFolder}`;
-
-    Observable.zip(
-      this.http.get(`${urlPrefix}/record.json`),
-      this.http.get(`${urlPrefix}/schema.json`),
-      this.http.get(`${urlPrefix}/patches.json`),
-      this.http.get(`${urlPrefix}/problem-map.json`),
-      (recordRes, schemaRes, patchesRes, problemMapRes) => {
-        return {
-          record: recordRes.json(),
-          schema: schemaRes.json(),
-          patches: patchesRes.json(),
-          problemMap: problemMapRes.json()
-        };
-      }
-    ).subscribe(data => {
-      this.record = data.record;
-      this.schema = data.schema;
-      this.patches = data.patches;
-      this.problemMap = data.problemMap;
-    });
+    this.recordService.getData(urlPrefix);
   }
 }
