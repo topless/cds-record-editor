@@ -1,21 +1,9 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { Injectable } from '@angular/core';
-
-import { RecordService } from './shared/services/record.service';
-
-import { environment } from '../environments/environment';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  encapsulation: ViewEncapsulation.None,
-  templateUrl: 'app.component.html',
-  providers: []
+  templateUrl: 'app.component.html'
 })
-export class AppComponent implements OnInit {
-  constructor(public recordService: RecordService) {}
-
-  ngOnInit() {
-    const urlPrefix = `./assets/${environment.mockDataFolder}`;
-    this.recordService.getData(urlPrefix);
-  }
+export class AppComponent {
+  constructor() {}
 }
