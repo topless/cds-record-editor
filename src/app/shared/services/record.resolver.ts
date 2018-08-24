@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
-import { RecordService } from './shared/services/record.service';
+import { RecordService } from './record.service';
 
 @Injectable()
 export class RecordResolver implements Resolve<any> {
@@ -8,6 +8,7 @@ export class RecordResolver implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot) {
     const url = 'http://127.0.0.1:5000/api/record/2';
-    return this.recordService.getData(url).then(data => data);
+    console.log('It should have resolved');
+    // return this.recordService.getData(url).then(data => data);
   }
 }

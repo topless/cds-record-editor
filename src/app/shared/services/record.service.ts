@@ -4,9 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { mergeMap } from 'rxjs/operators';
 
 import 'rxjs/add/observable/zip';
-import { Record } from '../interfaces/record.model';
-import { ProblemMap } from '../interfaces/problem-map.model';
-
+import { Record, ProblemMap } from '../interfaces';
 import { JsonEditorConfig } from 'ng2-json-editor';
 import { environment } from '../../../environments/environment';
 
