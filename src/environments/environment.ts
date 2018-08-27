@@ -1,4 +1,4 @@
-import { defaultConfig } from '../configs';
+import { defaultConfig } from '../app/shared/config/default.config';
 
 export const environment = {
   production: false,
