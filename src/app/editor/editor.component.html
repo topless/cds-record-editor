@@ -14,11 +14,13 @@
   </div>
 </ng-template>
 
+<!--
+  [(jsonPatches)]="editorData.patches"
+  [problemMap]="editorData.problemMap"
+  [templates]="{referenceTemplate: referenceTemplate}"
+-->
 <json-editor *ngIf="editorData.record && editorData.schema"
   [config]="config"
   [(record)]="editorData.record"
-  [(jsonPatches)]="editorData.patches"
-  [problemMap]="editorData.problemMap"
-  [schema]="editorData.schema"
-  [templates]="{referenceTemplate: referenceTemplate}">
+  [schema]="editorData.schema">
 </json-editor>
