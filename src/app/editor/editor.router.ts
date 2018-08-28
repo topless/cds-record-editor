@@ -1,18 +1,18 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { EditorWrapperComponent } from './editor-wrapper.component';
+import { EditorComponent } from './editor.component';
 import { RecordResolver } from '../shared/services/record.resolver';
 
-const editorWrapperRoutes: Routes = [
+const editorRoutes: Routes = [
   {
     path: 'editor',
-    component: EditorWrapperComponent,
+    component: EditorComponent,
     resolve: { editorData: RecordResolver }
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(editorWrapperRoutes)],
+  imports: [RouterModule.forRoot(editorRoutes)],
   exports: [RouterModule]
 })
-export class EditorWrapperRouter {}
+export class EditorRouter {}

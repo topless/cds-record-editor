@@ -4,9 +4,16 @@ import { JsonEditorConfig } from 'ng2-json-editor';
 
 export const defaultConfig: JsonEditorConfig = {
   schemaOptions: {
+    alwaysShow: ['deleted'],
     properties: {
       $schema: {
         hidden: true
+      },
+      deleted: {
+        toggleColor: '#e74c3c'
+      },
+      citeable: {
+        toggleColor: '#3498db'
       },
       core: {
         toggleColor: '#27ae60'

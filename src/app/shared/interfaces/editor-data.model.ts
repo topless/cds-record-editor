@@ -1,6 +1,6 @@
 export interface EditorData {
-  patches: object;
-  problemMap: [any];
+  patches: Array<any>;
+  problemMap: object;
   record: object;
   schema: object;
 }

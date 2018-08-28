@@ -4,19 +4,13 @@ import { HttpModule } from '@angular/http';
 import { AppRouter } from './app.router';
 
 import { SharedModule } from './shared';
-import { EditorWrapperModule } from './editor-wrapper/editor-wrapper.module';
+import { EditorModule } from './editor/editor.module';
 import { SHARED_SERVICES } from './shared/services';
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    HttpModule,
-    AppRouter,
-    SharedModule,
-    EditorWrapperModule
-  ],
+  imports: [BrowserModule, HttpModule, AppRouter, SharedModule, EditorModule],
   providers: SHARED_SERVICES,
   bootstrap: [AppComponent]
 })

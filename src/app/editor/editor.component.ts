@@ -1,6 +1,9 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/zip';
 
 import { RecordService } from '../shared/services/record.service';
 import { EditorData } from '../shared/interfaces/editor-data.model';
@@ -8,12 +11,12 @@ import { JsonEditorConfig } from 'ng2-json-editor';
 import { environment } from '../../environments/environment';
 
 @Component({
-  selector: 'app-editor-wrapper',
+  selector: 'app-editor',
   encapsulation: ViewEncapsulation.None,
-  templateUrl: 'editor-wrapper.component.html',
+  templateUrl: 'editor.component.html',
   providers: []
 })
-export class EditorWrapperComponent implements OnInit {
+export class EditorComponent implements OnInit {
   editorData: EditorData;
   readonly config: JsonEditorConfig = {
     ...environment.editorConfig // , ...mySpecificConfig
@@ -21,6 +24,7 @@ export class EditorWrapperComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private http: Http,
     public recordService: RecordService
   ) {}
 
