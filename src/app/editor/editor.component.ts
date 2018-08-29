@@ -17,8 +17,8 @@ import { environment } from '../../environments/environment';
 })
 export class EditorComponent implements OnInit {
   editorData: EditorData;
+  readonly config: JsonEditorConfig = {};
   // readonly config: JsonEditorConfig = environment.editorConfig;
-  readonly config = {};
 
   constructor(
     private route: ActivatedRoute,
@@ -32,53 +32,18 @@ export class EditorComponent implements OnInit {
     return `${domain}${recType}`;
   }
 
-  // Problematic fields that crash the editor
-
-  // keywords: tempProps.keywords,
-  // internal_categories: tempProps.internal_categories,
-  // _cds: tempProps._cds,
-
-  // NOTE: Fields to check
   ngOnInit() {
     this.route.data.subscribe(data => {
       const configType = this.getRecordType(data.editorData.record.$schema);
-      // FIXME: JSON Schema validator results
-      // www.jsonschemavalidator.net
-      // Required properties are missing from object: recid, title,
-      // publication_date, contributors, report_number, category, type.
 
-      // NOTE: It looks like the following fields are the ones which are not
-      // defined properly in schema.
-      delete data.editorData.schema.keywords;
-      delete data.editorData.schema.internal_categories;
-      delete data.editorData.schema._cds;
+      // NOTE: Proof of concept, when we are defining properties the editor
+      // is able to render our schema and record properly
+      const props = data.editorData.schema.properties;
+      delete props.internal_categories;
+      delete props._cds;
 
-      const tempProps = data.editorData.schema.properties;
-
-      data.editorData.schema.properties = {
-        videos: tempProps.videos,
-        report_number: tempProps.report_number,
-        _access: tempProps._access,
-        subject: tempProps.subject,
-        category: tempProps.category,
-        contributors: tempProps.contributors,
-        title: tempProps.title,
-        note: tempProps.note,
-        type: tempProps.type,
-        _oai: tempProps._oai,
-        description: tempProps.description,
-        translations: tempProps.translations,
-        date: tempProps.date,
-        publication_date: tempProps.publication_date,
-        internal_note: tempProps.internal_note,
-        doi: tempProps.doi,
-        license: tempProps.license,
-        recid: tempProps.recid,
-        agency_code: tempProps.agency_code,
-        original_source: tempProps.original_source,
-        _deposit: tempProps._deposit
-      };
-
+      // Example how to make schema explicit
+      props.keywords.items.properties = { name: { type: 'string' } };
       this.editorData = data.editorData;
     });
   }
