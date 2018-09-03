@@ -1,11 +1,15 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const appRoutes: Routes = [
   {
     path: '',
-    component: AppComponent
+    component: WelcomeComponent
+  },
+  {
+    path: 'editor',
+    loadChildren: './editor/editor.module.ts#EditorModule'
   }
 ];
 

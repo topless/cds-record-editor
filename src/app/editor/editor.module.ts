@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
-
 import { SharedModule } from '../shared';
-
-import { EditorComponent } from './editor.component';
 import { EditorRouter } from './editor.router';
+import { EditorComponent } from './editor.component';
 
 @NgModule({
-  declarations: [EditorComponent],
-  imports: [SharedModule, EditorRouter]
+  imports: [SharedModule, EditorRouter],
+  declarations: [EditorComponent]
 })
 export class EditorModule {}

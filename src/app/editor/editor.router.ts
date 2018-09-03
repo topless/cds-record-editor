@@ -5,14 +5,14 @@ import { RecordResolver } from '../shared/services/record.resolver';
 
 const editorRoutes: Routes = [
   {
-    path: 'editor',
+    path: '',
     component: EditorComponent,
     resolve: { editorData: RecordResolver }
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(editorRoutes)],
+  imports: [RouterModule.forChild(editorRoutes)],
   exports: [RouterModule]
 })
 export class EditorRouter {}

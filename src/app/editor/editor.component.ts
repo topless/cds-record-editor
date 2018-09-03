@@ -17,8 +17,7 @@ import { environment } from '../../environments/environment';
 })
 export class EditorComponent implements OnInit {
   editorData: EditorData;
-  readonly config: JsonEditorConfig = {};
-  // readonly config: JsonEditorConfig = environment.editorConfig;
+  readonly config: JsonEditorConfig = environment.editorConfig;
 
   constructor(
     private route: ActivatedRoute,
