@@ -2,9 +2,8 @@
 
 import { JsonEditorConfig } from 'ng2-json-editor';
 
-export const defaultConfig: JsonEditorConfig = {
+export const defaultEditorConfig: JsonEditorConfig = {
   schemaOptions: {
-    alwaysShow: ['deleted'],
     properties: {
       $schema: {
         hidden: true

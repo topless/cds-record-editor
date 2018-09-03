@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { AppRouter } from './app.router';
+import { RouterModule } from '@angular/router';
 
-import { SharedModule } from './shared';
-import { EditorWrapperModule } from './editor-wrapper/editor-wrapper.module';
 import { SHARED_SERVICES } from './shared/services';
+
+import { AppRouter } from './app.router';
+import { SharedModule } from './shared';
+import { WelcomeModule } from './welcome/welcome.module';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -13,9 +16,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     HttpModule,
+    RouterModule,
     AppRouter,
     SharedModule,
-    EditorWrapperModule
+    WelcomeModule
   ],
   providers: SHARED_SERVICES,
   bootstrap: [AppComponent]

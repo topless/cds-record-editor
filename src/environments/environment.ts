@@ -1,7 +1,7 @@
-import { defaultConfig } from '../configs';
+import { defaultEditorConfig } from '../app/shared/config/default.editor.config';
 
 export const environment = {
   production: false,
-  editorConfig: defaultConfig,
+  editorConfig: defaultEditorConfig,
   mockDataFolder: 'mock-data'
 };
