@@ -14,10 +14,10 @@ export class RecordResolver implements Resolve<any> {
   ) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<EditorData> {
-    const apiUrl = 'http://127.0.0.1:5000/api/record/2';
-    return this.recordService.getData(apiUrl);
-    // NOTE: Mock service will be used for dev purposes, when we setup the editor
-    // with our data will be removed.
-    // return this.recordMockService.getMockData();
+    // const apiUrl = 'http://127.0.0.1:5000/api/record/2';
+    if (!route.queryParams.url) {
+      return this.recordMockService.getMockData();
+    }
+    return this.recordService.getData(route.queryParams.url);
   }
 }
