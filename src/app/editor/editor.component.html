@@ -17,5 +17,5 @@
   [problemMap]="editorData.problemMap"
   [templates]="{referenceTemplate: referenceTemplate}"
 -->
-<json-editor *ngIf="editorData.record && editorData.schema" [config]="config" [(record)]="editorData.record" [schema]="editorData.schema">
+<json-editor *ngIf="record && schema" [config]="config" [(record)]="record" [schema]="schema">
 </json-editor>

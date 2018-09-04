@@ -12,16 +12,17 @@ import { environment } from '../../../environments/environment';
 export class RecordService {
   constructor(private http: Http) {}
 
-  // FIXME: This is only for dev purposes till its fixed on videos.
+  /** Switching schema url to api for CORS purposes  */
   private buildCORS(url: string): string {
     const separator = 'schemas/';
     const urlParts = url.split(separator);
+    // FIXME: https -> http might not work on prod
     return `${urlParts[0].replace('https', 'http')}api/${separator}${
       urlParts[1]
     }`;
   }
 
-  public getData(url: string): Observable<any> {
+  public fetchData(url: string): Observable<any> {
     return this.http
       .get(url)
       .map((recordRes: any) => recordRes.json())

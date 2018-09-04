@@ -2,119 +2,13 @@
 
 import { JsonEditorConfig } from 'ng2-json-editor';
 
+// schema.properties._cds.properties.extracted_metadata;
+
 export const defaultEditorConfig: JsonEditorConfig = {
   schemaOptions: {
     properties: {
       $schema: {
         hidden: true
-      },
-      deleted: {
-        toggleColor: '#e74c3c'
-      },
-      citeable: {
-        toggleColor: '#3498db'
-      },
-      core: {
-        toggleColor: '#27ae60'
-      },
-      authors: {
-        items: {
-          order: ['full_name', 'affiliations'],
-          alwaysShow: ['credit_roles'],
-          properties: {
-            ids: {
-              disabled: true
-            }
-          }
-        }
-      },
-      references: {
-        sortable: true,
-        longListNavigatorConfig: {
-          findSingle: (value, expression) => {
-            return (
-              value.getIn(['reference', 'number']) === parseInt(expression, 10)
-            );
-          },
-          findMultiple: (value, expression) => {
-            return JSON.stringify(value).search(expression) > -1;
-          },
-          itemsPerPage: 20,
-          maxVisiblePageCount: 5
-        },
-        viewTemplateConfig: {
-          itemTemplateName: 'referenceTemplate',
-          showEditForm: value => {
-            return !value.hasIn(['record', '$ref']);
-          }
-        },
-        items: {
-          properties: {
-            reference: {
-              order: ['label', 'authors']
-            }
-          }
-        }
-      },
-      arxiv_eprints: {
-        items: {
-          properties: {
-            value: {
-              linkBuilder: (value: any) => {
-                return `http://arxiv.org/abs/${value}`;
-              }
-            }
-          }
-        }
-      },
-      abstracts: {
-        items: {
-          properties: {
-            source: {
-              columnWidth: 20
-            },
-            value: {
-              latexPreviewEnabled: true
-            }
-          }
-        }
-      },
-      publication_info: {
-        items: {
-          properties: {
-            conference_record: {
-              refFieldConfig: {
-                anchorBuilder: url => {
-                  const parts = url.split('/');
-                  const type = parts[parts.length - 2].slice(0, -1);
-                  const display = `View ${type}`;
-                  const href = url.replace(/\/api\//, '/');
-                  return { href, display };
-                }
-              }
-            }
-          }
-        }
-      },
-      titles: {
-        items: {
-          properties: {
-            title: {
-              latexPreviewEnabled: true
-            }
-          }
-        }
-      },
-      imprints: {
-        items: {
-          properties: {
-            date: {
-              errorMessage: {
-                format: 'This is not a date!'
-              }
-            }
-          }
-        }
       }
     }
   },
@@ -143,7 +37,7 @@ export const defaultEditorConfig: JsonEditorConfig = {
       }
     }
   },
-  enableAdminModeSwitch: true,
+  enableAdminModeSwitch: false,
   menuMaxDepth: 1,
   tabsConfig: {
     defaultTabName: 'Main',
