@@ -26,21 +26,39 @@ export class EditorComponent implements OnInit {
    * Removes properties whose name starts with underscore. Usually these
    * are auto generated and we don't want to edit them. They might also
    * NOT be explicitly defined in the schema.
-   * @param rec Our record object
+   * @param editorData The record and the schema
    */
-  cleanupProperties(rec: any): any {
-    if (rec.hasOwnProperty('internal_categories')) {
-      delete rec.internal_categories;
+  cleanupProperties(editorData: any): void {
+    const { record, schema } = editorData;
+
+    if (record.hasOwnProperty('internal_categories')) {
+      delete record.internal_categories;
+      delete schema.properties.internal_categories;
     }
-    Object.keys(rec).forEach((key: string) => {
-      if (key.startsWith('_cds') && rec[key].hasOwnProperty('extracted_metadata')) {
-        delete rec[key].extracted_metadata;
+
+    Object.keys(record).forEach((key: string) => {
+      if (key.startsWith('_cds') && record[key].hasOwnProperty('extracted_metadata')) {
+        delete record[key].extracted_metadata;
+        delete schema.properties[key].properties.extracted_metadata;
       }
+
       if (key.startsWith('_') && !key.startsWith('_cds')) {
-        delete rec[key];
+        delete record[key];
       }
     });
-    return rec;
+    this.record = record;
+    this.schema = schema;
+  }
+
+  findProblems(editorData: any): void {
+    const { record, schema } = editorData;
+    delete schema.required;
+    // delete schema.properties;
+    for (const prop of ALL_PROPS) {
+      delete schema.properties[prop];
+    }
+    this.record = record;
+    this.schema = schema;
   }
 
   ngOnInit() {
@@ -54,10 +72,49 @@ export class EditorComponent implements OnInit {
       } else {
         // TODO: Whenever we removed something from the record the change has to be
         // reflected also in the schema.
-        this.record = this.cleanupProperties(data.editorData.record);
-        delete data.editorData.schema.properties._cds.properties.extracted_metadata;
-        this.schema = data.editorData.schema;
+        // this.cleanupProperties(data.editorData);
+        this.findProblems(data.editorData);
       }
     });
   }
 }
+
+const ALL_PROPS = [
+  // 'Press',
+  // '_access',
+  '_cds',
+  // '_deposit',
+  // '_files',
+  // '_oai',
+  // '_project_id',
+  // 'accelerator_experiment',
+  // 'agency_code',
+  // 'audio_characteristics',
+  // 'category',
+  // 'contributors',
+  // 'copyright',
+  // 'date',
+  // 'description',
+  // 'doi',
+  // 'duration',
+  // 'external_system_identifiers',
+  // 'featured'
+  'internal_categories'
+  // 'internal_note'
+  // 'keywords'
+  // 'language',
+  // 'license'
+  // 'location'
+  // 'note'
+  // 'original_source',
+  // 'publication_date',
+  // 'recid',
+  // 'report_number',
+  // 'title',
+  // 'translations',
+  // 'type',
+  // 'vr',
+  // 'physical_medium',
+  // 'subject',
+  // 'related_links'
+];
