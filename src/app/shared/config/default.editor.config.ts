@@ -2,4 +2,12 @@
 
 import { JsonEditorConfig } from 'ng2-json-editor';
 
-export const defaultEditorConfig: JsonEditorConfig = {};
+export const defaultEditorConfig: JsonEditorConfig = {
+  schemaOptions: {
+    properties: {
+      $schema: {
+        hidden: true
+      }
+    }
+  }
+};
