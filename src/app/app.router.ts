@@ -4,11 +4,11 @@ import { WelcomeComponent } from './welcome/welcome.component';
 
 const appRoutes: Routes = [
   {
-    path: '',
+    path: 'welcome',
     component: WelcomeComponent
   },
   {
-    path: 'editor',
+    path: '',
     loadChildren: './editor/editor.module.ts#EditorModule'
   }
 ];
