@@ -14,10 +14,10 @@ export class RecordMockService {
 
   public getMockData(): Observable<EditorData> {
     return Observable.zip(
-      this.http.get(`./assets/${environment.mockDataFolder}/record.json`),
-      this.http.get(`./assets/${environment.mockDataFolder}/schema.json`),
-      this.http.get(`./assets/${environment.mockDataFolder}/patches.json`),
-      this.http.get(`./assets/${environment.mockDataFolder}/problem-map.json`),
+      this.http.get(`./${environment.mockDataFolder}/record.json`),
+      this.http.get(`./${environment.mockDataFolder}/schema.json`),
+      this.http.get(`./${environment.mockDataFolder}/patches.json`),
+      this.http.get(`./${environment.mockDataFolder}/problem-map.json`),
       (recordRes, schemaRes, patchesRes, problemMapRes) => {
         return {
           record: recordRes.json(),
