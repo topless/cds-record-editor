@@ -1,11 +1,8 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/zip';
 
 import { RecordService } from '../shared/services/record.service';
-import { EditorData } from '../shared/interfaces/editor-data.model';
 import { JsonEditorConfig } from 'ng2-json-editor';
 import { environment } from '../../environments/environment';
 

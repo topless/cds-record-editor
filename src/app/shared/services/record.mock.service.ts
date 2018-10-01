@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { mergeMap } from 'rxjs/operators';
-
-import { JsonEditorConfig } from 'ng2-json-editor';
 import { EditorData } from '../interfaces';
 
 import { environment } from '../../../environments/environment';
