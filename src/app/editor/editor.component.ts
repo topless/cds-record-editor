@@ -46,6 +46,10 @@ export class EditorComponent implements OnInit {
     this.schema = schema;
   }
 
+  save() {
+    this.recordService.postData(this.record);
+  }
+
   ngOnInit() {
     this.route.data.subscribe(data => {
       if (!this.route.snapshot.queryParams.hasOwnProperty('url')) {

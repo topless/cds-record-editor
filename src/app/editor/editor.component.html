@@ -1,5 +1,4 @@
 <ng-template let-item="item" #referenceTemplate>
-
   <div class="reference-template-container" [ngSwitch]="item.hasIn(['record', '$ref'])">
     <span *ngSwitchCase="true">
       <i class="fa fa-check-circle success" aria-hidden="true"></i>
@@ -21,3 +20,7 @@
 -->
 <json-editor *ngIf="record && schema" [config]="config" [(record)]="record" [schema]="schema">
 </json-editor>
+
+<div>
+  <button type="button" class="btn btn-primary pull-right" (click)="save()">Save</button>
+</div>

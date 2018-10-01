@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class RecordService {
+  record_url: string;
   constructor(private http: Http) {}
 
   /** Switching schema url to api for CORS purposes  */
@@ -16,7 +17,19 @@ export class RecordService {
     }`;
   }
 
+  public postData(record) {
+    const token = document.getElementsByName('authorized_token');
+    const options = {
+      headers: new Headers({
+        'Authorization': 'Bearer ' + token[0],
+        'Content-Type': 'application/json'
+      })
+    };
+    this.http.post(this.record_url, record, options);
+  }
+
   public fetchData(url: string): Observable<any> {
+    this.record_url = url;
     return this.http
       .get(url)
       .map((recordRes: any) => recordRes.json())
