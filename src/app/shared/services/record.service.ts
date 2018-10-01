@@ -18,6 +18,7 @@ export class RecordService {
   }
 
   public postData(record) {
+    console.log('Saving data', this.record_url);
     const token = document.getElementsByName('authorized_token');
     const options = {
       headers: new Headers({
@@ -25,7 +26,7 @@ export class RecordService {
         'Content-Type': 'application/json'
       })
     };
-    this.http.post(this.record_url, record, options);
+    this.http.put(this.record_url, record, options);
   }
 
   public fetchData(url: string): Observable<any> {

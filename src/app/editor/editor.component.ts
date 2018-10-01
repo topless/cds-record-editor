@@ -47,6 +47,7 @@ export class EditorComponent implements OnInit {
   }
 
   save() {
+    console.log('Save clicked', this.record);
     this.recordService.postData(this.record);
   }
 
