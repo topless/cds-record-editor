@@ -1,6 +1,6 @@
 {
   "name": "test-invenio-record-editor-js",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
