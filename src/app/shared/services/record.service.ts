@@ -26,7 +26,15 @@ export class RecordService {
         'Content-Type': 'application/json'
       })
     };
-    this.http.put(this.record_url, record, options);
+    this.http.put(this.record_url, record, options)
+    .subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log('Error occured: ', err);
+      }
+    );
   }
 
   public fetchData(url: string): Observable<any> {
