@@ -1,15 +1,13 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { EditorComponent } from './editor/editor.component';
+import { RecordResolver } from './shared/services/record.resolver';
 
 const appRoutes: Routes = [
   {
-    path: 'welcome',
-    component: WelcomeComponent
-  },
-  {
     path: '',
-    loadChildren: './editor/editor.module.ts#EditorModule'
+    component: EditorComponent,
+    resolve: { editorData: RecordResolver }
   }
 ];
 

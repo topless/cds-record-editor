@@ -7,7 +7,7 @@ import { SHARED_SERVICES } from './shared/services';
 
 import { AppRouter } from './app.router';
 import { SharedModule } from './shared';
-import { WelcomeModule } from './welcome/welcome.module';
+import { EditorModule } from './editor/editor.module';
 
 import { AppComponent } from './app.component';
 
@@ -19,7 +19,7 @@ import { AppComponent } from './app.component';
     RouterModule,
     AppRouter,
     SharedModule,
-    WelcomeModule
+    EditorModule
   ],
   providers: SHARED_SERVICES,
   bootstrap: [AppComponent]
