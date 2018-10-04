@@ -1,5 +1,3 @@
-<button class="btn btn-primary" (click)="save()">save</button>
-
 <ng-template let-item="item" #referenceTemplate>
   <div class="reference-template-container" [ngSwitch]="item.hasIn(['record', '$ref'])">
     <span *ngSwitchCase="true">
@@ -15,10 +13,11 @@
   </div>
 </ng-template>
 
+<app-record-toolbar></app-record-toolbar>
 <!--
   [(jsonPatches)]="editorData.patches"
   [problemMap]="editorData.problemMap"
-  [templates]="{referenceTemplate: referenceTemplate}"
 -->
-<json-editor *ngIf="record && schema" [config]="config" [(record)]="record" [schema]="schema">
+<json-editor *ngIf="record && schema" [config]="config" [(record)]="record" [schema]="schema"
+  [templates]="{referenceTemplate: referenceTemplate}">
 </json-editor>

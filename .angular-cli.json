@@ -7,9 +7,7 @@
     {
       "root": "src",
       "outDir": "dist",
-      "assets": [
-        { "glob": "**/*", "input": "assets/", "output": "" }
-      ],
+      "assets": [{ "glob": "**/*", "input": "assets/", "output": "" }, "favicon.ico"],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
