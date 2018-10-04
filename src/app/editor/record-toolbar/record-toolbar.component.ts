@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-record-toolbar',
@@ -6,9 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./record-toolbar.component.scss']
 })
 export class RecordToolbarComponent {
-  constructor() {}
+  @Output()
+  broadcast = new EventEmitter();
 
-  onSaveClick() {
-    console.log('Broadcast an event to save the record');
-  }
+  constructor() {}
 }

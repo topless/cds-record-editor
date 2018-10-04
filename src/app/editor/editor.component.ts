@@ -49,8 +49,8 @@ export class EditorComponent implements OnInit {
     this.schema = schema;
   }
 
-  save() {
-    this.recordService.postData(this.record);
+  saveRecord(event) {
+    this.recordService.save(this.record);
   }
 
   ngOnInit() {

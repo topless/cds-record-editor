@@ -13,7 +13,7 @@
   </div>
 </ng-template>
 
-<app-record-toolbar></app-record-toolbar>
+<app-record-toolbar (broadcast)="saveRecord($event)"></app-record-toolbar>
 <!--
   [(jsonPatches)]="editorData.patches"
   [problemMap]="editorData.problemMap"
