@@ -17,7 +17,10 @@ export class EditorComponent implements OnInit {
   schema: object;
   readonly config: JsonEditorConfig = environment.editorConfig;
 
-  constructor(private route: ActivatedRoute, public recordService: RecordService) {}
+  constructor(
+    private route: ActivatedRoute,
+    public recordService: RecordService
+  ) {}
 
   /**
    * Removes properties whose name starts with underscore. Usually these
@@ -47,7 +50,6 @@ export class EditorComponent implements OnInit {
   }
 
   save() {
-    console.log('Save clicked', this.record);
     this.recordService.postData(this.record);
   }
 

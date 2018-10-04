@@ -18,16 +18,14 @@ export class RecordService {
   }
 
   public postData(record) {
-    console.log('Saving data', this.record_url);
     const token = document.getElementsByName('authorized_token');
     const options = {
       headers: new Headers({
-        'Authorization': 'Bearer ' + token[0],
+        Authorization: 'Bearer ' + token[0],
         'Content-Type': 'application/json'
       })
     };
-    this.http.put(this.record_url, record, options)
-    .subscribe(
+    this.http.put(this.record_url, record, options).subscribe(
       res => {
         console.log(res);
       },

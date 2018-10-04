@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "dev:local": "ng serve",
+    "dev:invenio": "ng build -op dist --prod --output-hashing none -w",
     "build": "ng build --prod --output-hashing none",
     "test": "ng test",
     "lint": "ng lint",
