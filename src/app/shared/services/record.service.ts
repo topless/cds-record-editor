@@ -23,13 +23,13 @@ export class RecordService {
         'Content-Type': 'application/json'
       })
     };
-    this.http.post(this.record_url, record, options).subscribe(
+    this.http.put(this.record_url, record, options).subscribe(
       res => {
         console.log(res);
         this.toaster.success('Record saved successfully!');
       },
       err => {
-        console.error('Error occured: ', err);
+        console.error('Error: ', err);
         this.toaster.error(err, 'Failed to save the record!');
       }
     );
