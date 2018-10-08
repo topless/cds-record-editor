@@ -20,7 +20,7 @@ export class RecordMockService {
           record: recordRes.json(),
           schema: schemaRes.json(),
           patches: patchesRes.json(),
-          problemMap: problemMapRes.json()
+          problemMap: problemMapRes.json(),
         };
       }
     );

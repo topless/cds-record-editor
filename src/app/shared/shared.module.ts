@@ -5,6 +5,6 @@ import { JsonEditorModule } from 'ng2-json-editor';
 @NgModule({
   imports: [CommonModule],
   declarations: [],
-  exports: [CommonModule, JsonEditorModule]
+  exports: [CommonModule, JsonEditorModule],
 })
 export class SharedModule {}

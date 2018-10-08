@@ -23,9 +23,9 @@ import { AppComponent } from './app.component';
     AppRouter,
     SharedModule,
     EditorModule,
-    ToastrModule.forRoot({ positionClass: 'toast-top-center' })
+    ToastrModule.forRoot({ positionClass: 'toast-top-center' }),
   ],
   providers: SHARED_SERVICES,
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

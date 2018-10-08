@@ -19,9 +19,9 @@ export class RecordService {
     const token = document.getElementsByName('authorized_token');
     const options = {
       headers: new Headers({
-        Authorization: 'Bearer ' + token[0],
-        'Content-Type': 'application/json'
-      })
+        Authorization: 'Bearer ' + token[0]['value'],
+        'Content-Type': 'application/json',
+      }),
     };
     this.http.put(this.record_url, record, options).subscribe(
       res => {
@@ -47,7 +47,7 @@ export class RecordService {
             record: record.metadata,
             schema: schemaRes.json(),
             problemMap: [],
-            patches: {}
+            patches: {},
           }));
       });
   }
