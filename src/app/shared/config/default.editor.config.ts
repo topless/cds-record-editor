@@ -6,8 +6,8 @@ export const defaultEditorConfig: JsonEditorConfig = {
   schemaOptions: {
     properties: {
       $schema: {
-        hidden: true
-      }
-    }
-  }
+        hidden: true,
+      },
+    },
+  },
 };

@@ -7,12 +7,12 @@ const appRoutes: Routes = [
   {
     path: '',
     component: EditorComponent,
-    resolve: { editorData: RecordResolver }
-  }
+    resolve: { editorData: RecordResolver },
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRouter {}

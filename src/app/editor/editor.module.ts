@@ -6,6 +6,6 @@ import { RecordToolbarComponent } from './record-toolbar/record-toolbar.componen
 
 @NgModule({
   imports: [SharedModule, TooltipModule.forRoot()],
-  declarations: [EditorComponent, RecordToolbarComponent]
+  declarations: [EditorComponent, RecordToolbarComponent],
 })
 export class EditorModule {}
